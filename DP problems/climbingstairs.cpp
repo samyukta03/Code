@@ -8,7 +8,7 @@ Explanation: There are two ways to climb to the top.
 1. 1 step + 1 step
 2. 2 steps
 /*-------------------------------*/
-// tc is  O(n) and sc O(n)
+// tc is  O(n) and sc O(1)
 
 class Solution {
 public:
@@ -16,7 +16,7 @@ public:
         if(n<=3){
          return n;
         }
-    int totstairs[n+2];
+    int totstairs[46]; //given constraint 1<=n<=45
     int i;
     totstairs[0]=0; totstairs[1]=1;
        for(i=4;i<=n;i++){
