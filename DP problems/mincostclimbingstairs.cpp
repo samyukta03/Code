@@ -20,14 +20,17 @@ The total cost is 6.
 class Solution {
 public:
     int minCostClimbingStairs(vector<int>& cost) {
-       int n = cost.size();
-        int dp[n+2];
-        dp[0]=0;
-        dp[1]=0;
-        for(int i=2;i<=n;i++){
-            dp[i]=min(dp[i-1]+cost[i-1],dp[i-2]+cost[i-2]); // we're taking min of two here because it can take either 1 step or 2 steps at a time
-        }
-        return dp[n];
-        //Time complx = O() space comp O(n)
+        //TC = O(n) SC: O(1)
+        int n=cost.size();
+        if(n==1) return cost[0]; //base case
+         int dp[n];
+         // initially to climb till 0-th or 1th stair
+         dp[0]=cost[0];
+         dp[1]=cost[1];
+        //iterate over the array to find the cost at each stair by cal the cost at current step+ min of (accumulated cost of prev(i-1)and former to prev stait(i-2))
+     for(int i=2;i<n;i++)
+         dp[i]=cost[i]+min(dp[i-1],dp[i-2]);
+        //return the minimum cost 
+        return min(dp[n-1],dp[n-2]);
     }
 };
