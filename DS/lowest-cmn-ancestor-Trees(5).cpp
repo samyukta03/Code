@@ -21,3 +21,8 @@ public:
 
 2. Lowest Common ancestor - Binary tree
 Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
+--->Brute force approach 
+Find the path from root to both the nodes, store them and find the last common value in the path array. 
+But, the Time complexity : O(2n) and Space complexity : O(2n) 
+--->Optimized approach
+Follow the BFS traversal
