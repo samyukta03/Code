@@ -1,0 +1,14 @@
+Converting a solution to the next step shouldn't be as hard as attempting to come up with perfect algorithm at first attempt.
+
+This particular DP problem and most of others DP prob can be approached using the following sequence:
+
+1.Find recursive relation
+2.Recursive (top-down)
+3.Recursive + memo (top-down)
+4.Iterative + memo (bottom-up)
+5.Iterative + N variables (bottom-up)
+
+The major take away for me personally was to make an investment in learning about recurrence relationships (he says recursive relation). What are they? How do you create them? And related: What is an arithmetic progression, what is a geometric progression. Check it out:
+http://www.crazyforcode.com/house-robber-dynamic-programming/
+https://www.wikihow.com/Solve-Recurrence-Relations
+https://nzmaths.co.nz/resource/why-and-how-general-terms
