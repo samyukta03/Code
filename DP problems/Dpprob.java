@@ -1,3 +1,6 @@
+ Given a string of numeric values, print all the possible strings that can be formed if each alphabet is mapped from numbers from 1 to 26. Print the answer in lexicographical order.
+ Example: Input:  123
+Output: “abc aw lc”
 class way{
     int val;
     List<String>list;
