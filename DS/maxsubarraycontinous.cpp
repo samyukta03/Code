@@ -31,3 +31,14 @@ for(int i:nums){
 }
 return largest;
 
+// DP approach Time comp = Space comp = O(n)
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        vector<int> dp(nums);
+        for(int i = 1; i < size(nums); i++) 
+            dp[i] = max(nums[i], nums[i] + dp[i-1]);    
+ //At each index, we update dp[i] as max between either only choosing current element - nums[i] or extending from previous subarray and choosing current element as well - dp[i-1] + nums[i]   
+        return *max_element(begin(dp), end(dp));
+    }
+};
