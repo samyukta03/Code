@@ -26,7 +26,7 @@ public:
      int totarsum=0;
         for(int i=0;i<nums.size();i++){ //cal tot array sum and parallely invert the elements
             totarsum+=nums[i];
-            nums[i]=-nums[i];
+            nums[i]=-nums[i];//by inverting we are able to reuse the kadane's algo on it to find the maximum( but in reality minimum subarray) from the array .
         }
     int maxsumcirc = totarsum+kadanealgo(nums); //sum of given array + maximum subarray sum of inverted subarray
         return max(kadanesum,maxsumcirc); //return max of case 1 and 2
