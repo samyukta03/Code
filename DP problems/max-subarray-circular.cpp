@@ -10,6 +10,7 @@ Explanation: Subarray [3] has maximum sum 3
  // BF Approach ---------Kadane algo --------------------------                             Applying kadanes algo, take an index start and find the max sub array to the end index, next icnrement the start index to second, but the end index is incremented from arr[n] to arr[0], by index%N Hence the TC becomes O(n^2) in this case                                                 Optimized:   Two cases are possible : 1. No wrapped fashion, all elements are arranged.          2. Wrapping is present bw starting and ending elements                                          For Case1, do kadanes algo to find the max sum.                                                 For case  2 we convert wrapping to non wrapping by first store the tot array sum and then invert the sign of all ele in array and find the max sum of this using kadanes algo and add this max sum to tot array sum.                                                                               Return the max of sum obtained w/out inverting and after inverting
 class Solution {
 public:
+ //-----> Time complexity : O(n) Space complexity : O(1)
       int kadanealgo(vector<int>&arr){
         int maxsum=arr[0];
         int sum=arr[0];
