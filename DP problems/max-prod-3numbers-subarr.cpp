@@ -15,3 +15,6 @@ int main(){
     cout << maxprod3numbers(nums)<<endl;
     return 0;
 }
+
+Time complexity : O(n) 
+Space complexity ; O(1)
