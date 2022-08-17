@@ -8,6 +8,7 @@
 // 2nd string --> cfge
 // Output
 // No
+------------------------------Case sensitive --------------------------------------
 #include<bits/stdc++.h>
 using namespace std;
 bool commonchar(string a,string b){
@@ -30,6 +31,34 @@ if theres gonna be repeated chat in str2 then it count will already be >=1, so t
 int main(){
     string a="aaabb";
     string b="codeb";
+    if(commonchar(a,b)) cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
+    return 0;
+}
+------------------------------Case insensitive --------------------------------------
+#include<bits/stdc++.h>
+using namespace std;
+bool commonchar(string a,string b){
+    int arr1[256]={0}; 
+    for(auto x:a) { 
+       if(x >='A' && x <='Z')
+       arr1[x-'a'+32]=1; //a - 97 A-65, so if A occurs then 65-97+32=97-97=0, becomes 1 
+       else 
+       arr1[x-'a']=1; // if its not upper case directly store the occurance of lower case as 0
+    }
+    for(auto y:b){
+         if(y >='A' && y <='Z') 
+         { 
+            if( arr1[y-'a'+32]==1)
+             return false; 
+         }
+         else if (arr1[y-'a']==1) return false;
+     }
+    return true;
+}
+int main(){
+    string a="hiii";
+    string b="abcdI";
     if(commonchar(a,b)) cout<<"YES"<<endl;
     else cout<<"NO"<<endl;
     return 0;
