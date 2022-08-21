@@ -23,24 +23,25 @@ bool isAnagram(string s,string t){
         }
         return true;
 //-------------------3) Using HashMap---------------------------
-	bool isAnagram(string s, string t) 
-	{
-		map<char,int> m;
+	class Solution {
+	public:
+    bool isAnagram(string s, string t) {
 
-		for(auto i:s)
-		{
-			m[i]++;
-		}
-		for(auto i:t)
-		{
-			if(!m.count(i)|| m[i]==0) return false;
-			else m[i]--;
-		}
+        if(s.size()!=t.size()) return false;
 
-		for(auto i:m)
-		{
-			if(i.second>0) return false;
-		}
-		return true;
+        unordered_map<char,int>mp;
 
-	}
+        for(auto x:s)
+            mp[x]++;
+
+        for(auto x:t)
+		{
+            if(!mp.count(x) || mp[x]==0) 
+				return false;//if that char is not there in frist string return false
+            else mp[x]--; 
+/*if its there and if there'll be multiple occurances so we decrement its count as we encounter
+that char everytime in the 2nd string*/
+        }
+        return true;
+    }
+};
