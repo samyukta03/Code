@@ -6,7 +6,7 @@ Example 2:
 Input: n = 0    Output: 0
 Constraints:
 0 <= n <= 109
-//Naive approach 
+//Naive approach -- O(n^2)  
 class Solution {
 public:
     int countDigitOne(int n) {
