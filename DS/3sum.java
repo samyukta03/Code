@@ -35,7 +35,7 @@ two pointers where one pointer will constantly point to a number a, and u have t
 2.ii) if no and lo+hi > a then move high ptr as the summ decreases till lo+hi = -a
 2.iii) once u found a triplet, move lo and hi, but to avoid duplicates we have to move lo&hi till its not equal to prev obtained lo value of lo and hi 
 -->3) now a should not be the same val as before so move a till its not equal to prev value of a and repeat the same steps
-
+tc: O(n) sc:O(1)
 */
 class Solution {
     public List<List<Integer>> threeSum(int[] num) {
