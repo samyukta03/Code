@@ -22,3 +22,25 @@ public:
         }
         return m;
     }
+
+/* ----------------- Pascal triangle 2 ----------*/
+Given a row(0-nth), return the vector of that row. 
+eg) ip: 3 op: 1 3 3 1
+class Solution {
+public:
+    vector<int> getRow(int rowIndex)
+    {
+           vector <vector<int>> ans{{1}};
+
+     for(int i=0;i<=rowIndex-1;i++){
+          vector <int> temp;
+          temp.push_back(1);
+         for(int j=0;j<i;j++){
+            temp.push_back(ans[i][j]+ans[i][j+1]);
+        }
+        temp.push_back(1);
+        ans.push_back(temp);
+    }
+    return ans[rowIndex];
+    }
+};
