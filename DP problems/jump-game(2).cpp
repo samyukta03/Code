@@ -1,10 +1,10 @@
 /* ******************* JUMP GAME 1 *****************     */
 
-/*Given an array of non-negative integers nums, you are initially positioned at the first index of the array.
+Given an array of non-negative integers nums, you are initially positioned at the first index of the array.
 Each element in the array represents your maximum jump length at that position.
 Return true if possible to reach the last index and false if not possible.
-EG) I/P: 2-3-1-1-4 O/P: true(because from 2 to 3 and then from 3-4)
-*/
+EG I/P: 2-3-1-1-4 O/P: true(because from 2 to 3 and then from 3-4)
+
 class Solution {
 public:
     // =====================Linear approach==============
@@ -49,3 +49,25 @@ Your goal is to reach the last index in the minimum number of jumps.
 You can assume that you can always reach the last index , return the number of min steps to reach.
 Eg) 2,3,1,1,4 Ans: 2 steps ie)2-3 one step and then 3-4 one step
 
+class Solution {
+    public int jump(int[] nums) {
+     int lastReach = 0;
+	int reach = 0;
+	int step = 0;
+ 
+	for (int i = 0; i <= reach && i < nums.length; i++) {
+		//when last jump can not read current i, increase the step by 1
+		if (i > lastReach) {
+			step++;
+			lastReach = reach;
+		}
+		//update the maximal jump 
+		reach = Math.max(reach, nums[i] + i);
+	}
+ 
+	if (reach < nums.length - 1)
+		return 0;
+ 
+	return step;
+    }
+};
