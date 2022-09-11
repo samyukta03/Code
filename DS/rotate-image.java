@@ -4,7 +4,33 @@ DO NOT allocate another 2D matrix and do the rotation.
 [1 2 3        [7 4 1
  4 5 6   --->  8 5 2
  7 8 9]        9 6 3]
-
-//take transpose and reverse each vector of the 2d matrix
-
+ // ---------------time comp = O(n*n) space comp=O(1)
+class Solution {
+    //take transpose and reverse each row of matrix 
+    public void rotate(int[][] matrix) {
+        int n=matrix.length;
+     //   int[][] transpose = new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<i;j++){
+                //swapping the lower traingle results in transpose of the matrix 
+               int temp =  matrix[i][j];
+               matrix[i][j]  =matrix[j][i];
+               matrix[j][i]=temp;
+            }
+        }
+        //reverse the rows after taking transpose so we use swap fn in java (stl not applicable unless its list)
+         for (int i = 0; i < n; i++) {
+        int start = 0;
+        int end = n - 1;
+        while (start < end) {
+            //swap the fns from both ends 
+        int temp = matrix[i][end];
+        matrix[i][end]= matrix[i][start];
+        matrix[i][start]=temp;
+            start++; 
+            end--;
+        }
+    }
+    }
+}
  
