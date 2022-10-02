@@ -26,3 +26,22 @@ public:
 
 //time compl O(m+n) iterate through both arrays in seprate for loops
 //space comp O(min(m,n)) -- because we store the contents of smaller array
+
+
+class Solution {
+public:
+    vector<int> intersection(vector<int>& n1, vector<int>& n2) {
+        if(n2.size()>n1.size())
+           swap(n1,n2);
+        vector<int> ans;
+        unordered_map<int,int>m1;
+            for(auto x:n1) m1[x]++;
+            for(auto x:n2) if(m1[x]>0 && find(ans.begin(),ans.end(),x)==ans.end()) {
+                ans.push_back(x) ;
+                m1[x]--;
+            }
+        //    for(auto x:m1) if(x.second==0) ans.push_back(x.first);
+         sort(ans.begin(),ans.end(),greater<int>());
+        return ans;
+    }
+};
