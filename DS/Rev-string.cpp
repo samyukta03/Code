@@ -49,3 +49,5 @@ public:
         return ans;
     }
 };
+
+/---------------------Java approach------------
